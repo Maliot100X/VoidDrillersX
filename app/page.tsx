@@ -144,8 +144,8 @@ export default function Home() {
       <FlyingRocket />
       <WelcomeBackModal />
 
-      {/* App Container - Strict 9:16 Aspect Ratio */}
-      <div className="relative z-10 flex aspect-[9/16] h-[95vh] max-h-[920px] w-auto flex-col overflow-hidden rounded-3xl border-4 border-[#00F0FF]/30 bg-[#0B1026] shadow-[0_0_50px_rgba(0,240,255,0.15)] ring-1 ring-[#00F0FF]/50 scale-90">
+      {/* App Container - Responsive Mobile-First Design */}
+      <div className="relative z-10 flex h-[100dvh] w-full max-w-md flex-col overflow-hidden bg-[#0B1026] shadow-[0_0_50px_rgba(0,240,255,0.15)] ring-1 ring-[#00F0FF]/50 sm:h-[90vh] sm:rounded-3xl sm:border-4 sm:border-[#00F0FF]/30">
         
         {/* Top Bar (HUD) */}
         <div className="shrink-0 z-20 bg-[#0B1026]/90 backdrop-blur-md border-b border-[#00F0FF]/10">
