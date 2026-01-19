@@ -223,20 +223,43 @@ export function Profile() {
     }
   };
 
+  // Auto-connect for Farcaster users
+  useEffect(() => {
+    if (farcasterUser && !isConnected && !address) {
+      const autoConnect = async () => {
+        const injected = connectors.find(c => c.id.toLowerCase().includes('injected'));
+        if (injected) {
+            try {
+                await connectAsync({ connector: injected });
+            } catch (e) {
+                console.warn("Auto-connect failed:", e);
+            }
+        }
+      };
+      autoConnect();
+    }
+  }, [farcasterUser, isConnected, address, connectors, connectAsync]);
+
   const handleSyncWarpcast = async () => {
     setWalletError(null);
+    setIsPayingSignIn(true); // Reuse loading state for visual feedback
     try {
       // 1. Try to connect to injected provider (standard for Frames/MiniApps)
-      // This solves "wallet is missing" by forcing a connection to the frame's provider
       const injected = connectors.find(c => c.id.toLowerCase().includes('injected'));
       if (injected) {
         await connectAsync({ connector: injected });
+        // Force refresh of profile data
+        window.location.reload(); 
       } else {
-        window.location.reload();
+        setWalletError("No wallet provider found. Reloading...");
+        setTimeout(() => window.location.reload(), 1000);
       }
     } catch (e) {
-      console.error("Sync failed, reloading...", e);
-      window.location.reload();
+      console.error("Sync failed:", e);
+      setWalletError("Sync failed. Reloading...");
+      setTimeout(() => window.location.reload(), 1000);
+    } finally {
+        setIsPayingSignIn(false);
     }
   };
 
@@ -341,6 +364,15 @@ export function Profile() {
     } finally {
       setIsSaving(false);
     }
+  };
+
+  const handleVerifyOrConnect = async () => {
+    if (!isConnected) {
+        // Try to connect using the best method (Sync/Injected)
+        await handleSyncWarpcast();
+        return;
+    }
+    handleVerifyProfile();
   };
 
   const displayName = customName || farcasterUser?.username || 'Guest Pilot';
@@ -496,8 +528,8 @@ export function Profile() {
                   </div>
                   {!isVerified ? (
                     <button
-                      onClick={handleVerifyProfile}
-                      disabled={isVerifying || isWaitingForTx || (!isConnected && !farcasterUser)}
+                      onClick={handleVerifyOrConnect}
+                      disabled={isVerifying || isWaitingForTx}
                       className={cn(
                         "w-full flex items-center justify-center gap-2 rounded bg-[#00F0FF] py-2 text-sm font-bold text-black shadow-[0_0_15px_rgba(0,240,255,0.4)] hover:bg-[#00F0FF]/80 disabled:opacity-50"
                       )}
@@ -505,6 +537,10 @@ export function Profile() {
                       {isVerifying || isWaitingForTx ? (
                         <>
                           <Loader2 className="h-4 w-4 animate-spin" /> {isWaitingForTx ? "Confirming..." : "Verifying"}
+                        </>
+                      ) : !isConnected ? (
+                        <>
+                          <Wallet className="h-4 w-4" /> Connect Wallet to Verify
                         </>
                       ) : (
                         <>
