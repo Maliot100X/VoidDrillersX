@@ -369,15 +369,6 @@ export function Profile() {
     }
   };
 
-  const handleVerifyOrConnect = async () => {
-    if (!isConnected) {
-        // Try to connect using the best method (Sync/Injected)
-        await handleSyncWarpcast();
-        return;
-    }
-    handleVerifyProfile();
-  };
-
   const displayName = customName || farcasterUser?.username || 'Guest Pilot';
   const displayPfp = farcasterUser?.pfpUrl;
 
@@ -531,8 +522,8 @@ export function Profile() {
                   </div>
                   {!isVerified ? (
                     <button
-                      onClick={handleVerifyOrConnect}
-                      disabled={isVerifying || isWaitingForTx}
+                      onClick={handleVerifyProfile}
+                      disabled={isVerifying || isWaitingForTx || (!isConnected && !farcasterUser)}
                       className={cn(
                         "w-full flex items-center justify-center gap-2 rounded bg-[#00F0FF] py-2 text-sm font-bold text-black shadow-[0_0_15px_rgba(0,240,255,0.4)] hover:bg-[#00F0FF]/80 disabled:opacity-50"
                       )}
@@ -540,10 +531,6 @@ export function Profile() {
                       {isVerifying || isWaitingForTx ? (
                         <>
                           <Loader2 className="h-4 w-4 animate-spin" /> {isWaitingForTx ? "Confirming..." : "Verifying"}
-                        </>
-                      ) : !isConnected ? (
-                        <>
-                          <Wallet className="h-4 w-4" /> Connect Wallet to Verify
                         </>
                       ) : (
                         <>
