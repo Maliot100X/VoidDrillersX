@@ -27,7 +27,11 @@ export function BottomDock({ activeTab, onTabChange }: BottomDockProps) {
   ];
 
   return (
-    <div className="absolute bottom-4 left-3 right-3 z-50 rounded-2xl border border-[#00F0FF]/20 bg-[#0B1026]/80 backdrop-blur-xl shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+    <div className="absolute bottom-4 left-3 right-3 z-50 rounded-2xl border border-[#00F0FF]/20 bg-[#0B1026]/80 backdrop-blur-xl shadow-[0_0_20px_rgba(0,0,0,0.5)] overflow-hidden">
+      <div 
+        className="absolute inset-0 z-[-1] opacity-50 bg-cover bg-center"
+        style={{ backgroundImage: "url('/assets/tab-bg.svg')" }}
+      />
       <div className="flex items-center justify-around p-1.5">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;

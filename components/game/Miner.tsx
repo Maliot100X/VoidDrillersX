@@ -22,6 +22,10 @@ export const Miner = ({ color = "#00F0FF", delay = 0, duration = 0.8, variant = 
 
   const renderBody = () => {
     switch (variant) {
+      case 'satoshi_rocket':
+        return (
+          <image href="/assets/character-rocket.svg" x="0" y="0" width="32" height="32" />
+        );
       case 'farcaster':
         return (
           <>
@@ -160,16 +164,6 @@ export const Miner = ({ color = "#00F0FF", delay = 0, duration = 0.8, variant = 
             <circle cx="16" cy="14" r="8" fill="#FFD700" />
             <text x="16" y="18" textAnchor="middle" fontSize="10" fontWeight="bold" fill="black">₿</text>
             <motion.path d="M8 20L16 32L24 20" fill="orange" opacity="0.6" animate={{ y: [0, 2, 0] }} transition={{ duration: 0.2, repeat: Infinity }} />
-          </>
-        );
-      case 'satoshi_rocket':
-        return (
-          <>
-            {/* Satoshi Rocket - The ultimate form */}
-            <path d="M16 2L24 16H8L16 2Z" fill="#FFD700" stroke="orange" strokeWidth="1" />
-            <rect x="12" y="16" width="8" height="10" fill="#333" stroke="gold" strokeWidth="1" />
-            <motion.path d="M12 26L14 32L16 26L18 32L20 26" fill="red" animate={{ height: [6, 10, 6] }} transition={{ duration: 0.1, repeat: Infinity }} />
-            <circle cx="16" cy="20" r="2" fill="#00F0FF" />
           </>
         );
       default:

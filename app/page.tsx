@@ -123,10 +123,7 @@ export default function Home() {
     }, 400);
   };
 
-  const worldBackground =
-    currentPlanetId === 'satoshi_world'
-      ? 'radial-gradient(circle, #1a1100 0%, #332200 100%)'
-      : 'radial-gradient(circle, #0B1026 0%, #001a33 100%)';
+  const worldBackground = `url('/assets/game-open-banner.svg')`;
 
   return (
     <main className="flex min-h-screen w-full items-center justify-center bg-black overflow-hidden relative font-sans text-white">
@@ -164,10 +161,11 @@ export default function Home() {
                     <div className="flex w-full max-w-xs rounded-full border border-[#00F0FF]/20 bg-black/40 p-1">
                       <button
                         onClick={() => setMineSubTab('control')}
+                        style={mineSubTab === 'control' ? { backgroundImage: "url('/assets/ui-button.svg')", backgroundSize: '100% 100%' } : undefined}
                         className={cn(
                           'flex-1 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wide transition-all',
                           mineSubTab === 'control'
-                            ? 'bg-[#00F0FF] text-black shadow-[0_0_10px_rgba(0,240,255,0.5)]'
+                            ? 'bg-[#00F0FF] text-black shadow-[0_0_10px_rgba(0,240,255,0.5)] bg-cover bg-center bg-no-repeat'
                             : 'bg-transparent text-gray-400 hover:text-white',
                         )}
                       >
@@ -175,10 +173,11 @@ export default function Home() {
                       </button>
                       <button
                         onClick={() => setMineSubTab('staff')}
+                        style={mineSubTab === 'staff' ? { backgroundImage: "url('/assets/ui-button.svg')", backgroundSize: '100% 100%' } : undefined}
                         className={cn(
                           'flex-1 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wide transition-all',
                           mineSubTab === 'staff'
-                            ? 'bg-[#00F0FF] text-black shadow-[0_0_10px_rgba(0,240,255,0.5)]'
+                            ? 'bg-[#00F0FF] text-black shadow-[0_0_10px_rgba(0,240,255,0.5)] bg-cover bg-center bg-no-repeat'
                             : 'bg-transparent text-gray-400 hover:text-white',
                         )}
                       >

@@ -18,6 +18,7 @@ interface ShopItem {
   costEth: string;
   costGameAssets?: number;
   icon: LucideIcon;
+  imageUrl?: string;
   effect: () => void;
 }
 
@@ -42,6 +43,7 @@ export function Shop() {
       description: 'Instantly gain 1 hour of production.',
       costEth: '0.0003',
       icon: Clock,
+      imageUrl: '/assets/item-chest.svg',
       effect: () => instantWarp(3600),
     },
     {
@@ -50,6 +52,7 @@ export function Shop() {
       description: 'Instantly gain 4 hours of production.',
       costEth: '0.0006',
       icon: Clock,
+      imageUrl: '/assets/item-chest.svg',
       effect: () => instantWarp(3600 * 4),
     },
     {
@@ -58,6 +61,7 @@ export function Shop() {
       description: 'Double all production for 24 hours.',
       costEth: '0.001',
       icon: Zap,
+      imageUrl: '/assets/item-blast.svg',
       effect: () => activateGlobalBoost(2, 24 * 3600),
     },
     {
@@ -66,6 +70,7 @@ export function Shop() {
       description: 'Temporarily boost all shafts with high-power drills.',
       costEth: '0.002',
       icon: Zap,
+      imageUrl: '/assets/item-drill.svg',
       effect: () => activateGlobalBoost(2.5, 6 * 3600),
     },
     {
@@ -74,6 +79,7 @@ export function Shop() {
       description: 'Permanent premium badge and priority for future rewards.',
       costEth: '0.0033',
       icon: Zap,
+      imageUrl: '/assets/item-chest.svg',
       effect: () => setHasExecutivePass(),
     },
   ];
@@ -286,8 +292,12 @@ function ShopTabs({ items, isPending, hasExecutivePass, ownedSkinIds, onPurchase
         className="flex items-center justify-between rounded-xl border border-[#00F0FF]/20 bg-[#162044] p-3 shadow-[0_0_10px_rgba(0,0,0,0.4)] transition-all duration-200 hover:scale-[1.02] hover:border-[#00F0FF]/60 hover:shadow-[0_0_20px_rgba(0,240,255,0.5)]"
       >
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#0B1026] border border-white/10">
-            <Icon className="h-5 w-5 text-[#FFD700]" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#0B1026] border border-white/10 overflow-hidden">
+            {item.imageUrl ? (
+              <img src={item.imageUrl} alt={item.name} className="h-full w-full object-cover" />
+            ) : (
+              <Icon className="h-5 w-5 text-[#FFD700]" />
+            )}
           </div>
           <div>
             <h3 className="font-bold text-white text-sm">{item.name}</h3>

@@ -13,8 +13,11 @@ export function Map() {
   const travelToPlanet = useGameStore(state => state.travelToPlanet);
 
   return (
-    <div className="flex flex-col space-y-4 p-4 pb-24">
-      <div className="flex items-center gap-2 mb-4">
+    <div 
+      className="flex flex-col space-y-4 p-4 pb-24 min-h-full bg-cover bg-center bg-fixed rounded-xl"
+      style={{ backgroundImage: "url('/assets/map-bg.svg')" }}
+    >
+      <div className="flex items-center gap-2 mb-4 bg-black/40 p-2 rounded-lg backdrop-blur-sm">
         <Globe className="h-6 w-6 text-[#00F0FF]" />
         <h2 className="font-orbitron text-xl font-bold text-white">Star Map</h2>
       </div>
