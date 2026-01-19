@@ -15,7 +15,7 @@ const chakraPetch = Chakra_Petch({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://milky-way-miner.vercel.app'),
+  metadataBase: new URL('https://void-drillers-x.vercel.app'),
   title: "Milky Way Miner",
   description: "A Farcaster Frame Game",
   icons: {
