@@ -223,6 +223,15 @@ export function Profile() {
   };
 
   const handleSyncWarpcast = async () => {
+    // Disconnect wallet first to prevent auto-connect loops (e.g. MetaMask popping up on reload)
+    // This ensures we start fresh with just Farcaster identity
+    if (isConnected) {
+      try {
+        await disconnect();
+      } catch (e) {
+        console.error("Failed to disconnect before sync:", e);
+      }
+    }
     // Just reload to sync Farcaster context/UI
     window.location.reload();
   };
