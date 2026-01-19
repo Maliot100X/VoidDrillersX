@@ -205,12 +205,38 @@ export function Profile() {
 
   const handleConnectBaseWallet = async () => {
     setWalletError(null);
-    await connectWith(
-      (id, name) => id.toLowerCase().includes('coinbase') || name.toLowerCase().includes('coinbase'),
-      'Base wallet',
-    );
+    // Prioritize Coinbase Wallet, but fallback to Injected if in a dApp browser
+    const coinbase = connectors.find(c => c.id.toLowerCase().includes('coinbase') || c.name.toLowerCase().includes('coinbase'));
+    const injected = connectors.find(c => c.id.toLowerCase().includes('injected'));
+    
+    if (coinbase) {
+        await connectAsync({ connector: coinbase }).catch(() => {
+            // If Coinbase fails, try injected (often handles the same in some envs)
+            if (injected) connectAsync({ connector: injected });
+        });
+    } else if (injected) {
+        await connectAsync({ connector: injected });
+    }
+    
     if (!walletError) {
       await paySignInFee('Base wallet');
+    }
+  };
+
+  const handleSyncWarpcast = async () => {
+    setWalletError(null);
+    try {
+      // 1. Try to connect to injected provider (standard for Frames/MiniApps)
+      // This solves "wallet is missing" by forcing a connection to the frame's provider
+      const injected = connectors.find(c => c.id.toLowerCase().includes('injected'));
+      if (injected) {
+        await connectAsync({ connector: injected });
+      } else {
+        window.location.reload();
+      }
+    } catch (e) {
+      console.error("Sync failed, reloading...", e);
+      window.location.reload();
     }
   };
 
@@ -439,7 +465,7 @@ export function Profile() {
                         WalletConnect
                       </button>
                       <button
-                        onClick={() => window.location.reload()}
+                        onClick={handleSyncWarpcast}
                         className="flex-1 min-w-[90px] rounded bg-[#7C65C1] px-3 py-1.5 text-[11px] font-bold text-white hover:bg-[#6952A3]"
                       >
                         Sync Warpcast

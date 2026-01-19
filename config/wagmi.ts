@@ -8,6 +8,7 @@ const connectors = [
   injected(),
   coinbaseWallet({
     appName: 'Milky Way Miner',
+    preference: 'smartWalletOnly',
   }),
   // WalletConnect is only enabled when a project id is configured
   ...(projectId
