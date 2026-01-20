@@ -43,6 +43,9 @@ export const metadata: Metadata = {
     description: "Mine resources, earn $VDR, and compete on the leaderboard!",
     images: ['https://void-drillers-x.vercel.app/assets/og-image.jpg'],
   },
+  other: {
+    'base:app_id': '696eec56f22fe462e74c1616',
+  },
 };
 
 export default function RootLayout({
