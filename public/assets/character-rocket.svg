@@ -1,5 +1,22 @@
-
-  <svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="#00F0FF"/>
-    <text x="50%" y="50%" font-family="Arial" font-size="102.4" fill="white" text-anchor="middle" dy=".3em">Rocket</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <filter id="neon">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Rocket Body -->
+  <path d="M256 100 Q350 200 350 350 L300 450 L256 420 L212 450 L162 350 Q162 200 256 100" fill="#0B1026" stroke="#00F0FF" stroke-width="8" filter="url(#neon)"/>
+  <!-- Window -->
+  <circle cx="256" cy="250" r="40" fill="#00F0FF" fill-opacity="0.2" stroke="#00F0FF" stroke-width="4"/>
+  <!-- Fins -->
+  <path d="M162 350 L100 450 L162 420" fill="#FF00F0" fill-opacity="0.5" stroke="#FF00F0" stroke-width="4" filter="url(#neon)"/>
+  <path d="M350 350 L412 450 L350 420" fill="#FF00F0" fill-opacity="0.5" stroke="#FF00F0" stroke-width="4" filter="url(#neon)"/>
+  <!-- Flame -->
+  <path d="M230 460 Q256 550 282 460" fill="#FFD700" filter="url(#neon)">
+    <animate attributeName="d" values="M230 460 Q256 550 282 460; M230 460 Q256 520 282 460; M230 460 Q256 550 282 460" dur="0.2s" repeatCount="indefinite"/>
+  </path>
+</svg>

@@ -1,5 +1,16 @@
-
-  <svg width="1024" height="1024" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="#0B0E17"/>
-    <text x="50%" y="50%" font-family="Arial" font-size="204.8" fill="white" text-anchor="middle" dy=".3em">Map</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <radialGradient id="mapGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0B1026"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#mapGrad)"/>
+  <circle cx="200" cy="200" r="2" fill="white" opacity="0.8"/>
+  <circle cx="800" cy="800" r="3" fill="white" opacity="0.6"/>
+  <circle cx="512" cy="100" r="2" fill="#00F0FF" opacity="0.7"/>
+  <circle cx="100" cy="900" r="2" fill="#FF00F0" opacity="0.5"/>
+  <path d="M0 0 L1024 1024" stroke="#ffffff" stroke-width="1" stroke-opacity="0.05"/>
+  <path d="M1024 0 L0 1024" stroke="#ffffff" stroke-width="1" stroke-opacity="0.05"/>
+  <circle cx="512" cy="512" r="300" fill="none" stroke="#00F0FF" stroke-width="1" stroke-opacity="0.1" stroke-dasharray="20 10"/>
+</svg>

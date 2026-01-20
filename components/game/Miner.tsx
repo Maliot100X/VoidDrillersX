@@ -168,15 +168,7 @@ export const Miner = ({ color = "#00F0FF", delay = 0, duration = 0.8, variant = 
         );
       default:
         return (
-          <>
-            <rect x="10" y="10" width="12" height="14" rx={variantIndex === 0 ? 2 : variantIndex === 1 ? 4 : 1} stroke={color} strokeWidth="2" fill="#0B1026" />
-            <circle cx="16" cy="6" r={variantIndex === 1 ? 4 : 3} fill={color} />
-            <path d="M12 24L10 30" stroke={color} strokeWidth="2" strokeLinecap="round" />
-            <path d="M20 24L22 30" stroke={color} strokeWidth="2" strokeLinecap="round" />
-            {variantIndex === 0 && <path d="M13 14H19" stroke={color} strokeWidth="1" />}
-            {variantIndex === 1 && <path d="M13 13H19" stroke={color} strokeWidth="2" />}
-            {variantIndex === 2 && <path d="M13 15H19" stroke={color} strokeWidth="1" />}
-          </>
+          <image href="/assets/character-rocket.svg" x="0" y="0" width="32" height="32" />
         );
     }
   };

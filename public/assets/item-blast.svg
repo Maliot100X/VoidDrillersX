@@ -1,5 +1,14 @@
-
-  <svg width="256" height="256" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="#FF4500"/>
-    <text x="50%" y="50%" font-family="Arial" font-size="51.2" fill="white" text-anchor="middle" dy=".3em">Blast</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <filter id="boom">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M128 20 L150 100 L230 80 L170 140 L240 200 L150 180 L128 250 L106 180 L16 200 L86 140 L26 80 L106 100 Z" fill="#FF4500" stroke="#FFFF00" stroke-width="4" filter="url(#boom)">
+    <animate attributeName="transform" type="scale" values="1;1.1;1" dur="0.5s" repeatCount="indefinite" additive="sum" />
+  </path>
+</svg>

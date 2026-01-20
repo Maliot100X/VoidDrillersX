@@ -1,5 +1,17 @@
-
-  <svg width="256" height="256" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="#32CD32"/>
-    <text x="50%" y="50%" font-family="Arial" font-size="51.2" fill="white" text-anchor="middle" dy=".3em">Chest</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <filter id="shine">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect x="40" y="80" width="176" height="120" rx="10" fill="#4A0E4E" stroke="#FF00F0" stroke-width="4" filter="url(#shine)"/>
+  <path d="M40 120 H216" stroke="#FF00F0" stroke-width="4"/>
+  <circle cx="128" cy="140" r="20" fill="#FFD700" filter="url(#shine)"/>
+  <text x="128" y="148" text-anchor="middle" fill="#000" font-weight="bold" font-size="20">$</text>
+  <!-- Rays -->
+  <path d="M128 60 L128 80 M80 70 L95 90 M176 70 L161 90" stroke="#FFD700" stroke-width="4" filter="url(#shine)"/>
+</svg>

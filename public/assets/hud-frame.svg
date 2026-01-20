@@ -1,5 +1,16 @@
-
-  <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="#00F0FF"/>
-    <text x="50%" y="50%" font-family="Arial" font-size="60" fill="white" text-anchor="middle" dy=".3em">HUD</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="none">
+  <defs>
+    <filter id="frameGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect x="2" y="2" width="396" height="296" rx="10" fill="none" stroke="#00F0FF" stroke-width="2" stroke-opacity="0.5"/>
+  <path d="M0 0 L40 0 L0 40 Z" fill="#00F0FF" filter="url(#frameGlow)"/>
+  <path d="M400 0 L360 0 L400 40 Z" fill="#00F0FF" filter="url(#frameGlow)"/>
+  <path d="M0 300 L40 300 L0 260 Z" fill="#00F0FF" filter="url(#frameGlow)"/>
+  <path d="M400 300 L360 300 L400 260 Z" fill="#00F0FF" filter="url(#frameGlow)"/>
+</svg>

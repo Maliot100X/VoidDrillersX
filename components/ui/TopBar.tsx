@@ -17,6 +17,11 @@ export function TopBar() {
   return (
     <div 
       className="absolute top-0 left-0 right-0 z-50 flex h-14 items-center justify-between bg-[#0B1026]/90 px-3 backdrop-blur-md border-b border-[#00F0FF]/20"
+      style={{
+        backgroundImage: "url('/assets/hud-frame.svg')",
+        backgroundSize: '100% 100%',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
       {/* Left: Planet */}
       <div className="flex flex-col">

@@ -1,5 +1,14 @@
-
-  <svg width="1200" height="200" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="#162044"/>
-    <text x="50%" y="50%" font-family="Arial" font-size="40" fill="white" text-anchor="middle" dy=".3em">Tab BG</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="tabGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B1026" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#162044" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="200" fill="url(#tabGrad)"/>
+  <circle cx="100" cy="50" r="2" fill="white" opacity="0.5"/>
+  <circle cx="300" cy="150" r="3" fill="white" opacity="0.3"/>
+  <circle cx="600" cy="20" r="2" fill="#00F0FF" opacity="0.6"/>
+  <circle cx="900" cy="180" r="2" fill="#FF00F0" opacity="0.4"/>
+  <line x1="0" y1="0" x2="1200" y2="0" stroke="#00F0FF" stroke-width="2" stroke-opacity="0.3"/>
+</svg>
