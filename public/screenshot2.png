@@ -1,7 +1,45 @@
-
-  <svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="#0B0E17"/>
-    <rect width="100%" height="100%" fill="none" stroke="#00F0FF" stroke-width="54"/>
-    <circle cx="50%" cy="50%" r="270" fill="#00F0FF" opacity="0.5"/>
-    <text x="50%" y="50%" font-family="Arial" font-weight="bold" font-size="108" fill="white" text-anchor="middle" dy=".3em">Screenshot 2</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- Dark cosmic background -->
+  <rect x="0" y="0" width="1920" height="1080" fill="#1a1d23" />
+  
+  <!-- Asteroid -->
+  <ellipse cx="800" cy="500" rx="200" ry="150" fill="#4c5154" />
+  <ellipse cx="820" cy="480" rx="100" ry="80" fill="#6c7174" />
+  
+  <!-- Drilling spaceship -->
+  <g transform="translate(400, 400)">
+    <rect x="0" y="0" width="200" height="100" fill="#33383f" rx="20" />
+    <rect x="50" y="-50" width="100" height="50" fill="#33383f" rx="10" />
+    <circle cx="100" cy="120" r="20" fill="#ff3737" />
+    <line x1="100" y1="140" x2="100" y2="180" stroke="#ff3737" stroke-width="5" />
+  </g>
+  
+  <!-- Drilling effect -->
+  <g transform="translate(820, 500)">
+    <line x1="0" y1="0" x2="0" y2="100" stroke="#ff9900" stroke-width="10" stroke-dasharray="10 20" />
+    <line x1="0" y1="0" x2="50" y2="50" stroke="#ff9900" stroke-width="5" />
+    <line x1="0" y1="0" x2="-50" y2="50" stroke="#ff9900" stroke-width="5" />
+  </g>
+  
+  <!-- Neon glow -->
+  <g>
+    <ellipse cx="820" cy="480" rx="120" ry="90" fill="none" stroke="#00ffff" stroke-width="5" opacity="0.5" />
+    <rect x="350" y="350" width="250" height="150" fill="none" stroke="#00ffff" stroke-width="5" rx="20" opacity="0.5" />
+  </g>
+  
+  <!-- Close-up details -->
+  <g>
+    <circle cx="410" cy="410" r="10" fill="#ffffff" />
+    <circle cx="440" cy="440" r="5" fill="#ffffff" />
+    <line x1="830" y1="490" x2="840" y2="500" stroke="#ffffff" stroke-width="2" />
+  </g>
+  
+  <!-- Additional glow effects -->
+  <g>
+    <radialGradient id="glowGrad" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
+      <stop offset="0%" stop-color="#00ffff" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#00ffff" stop-opacity="0" />
+    </radialGradient>
+    <ellipse cx="800" cy="500" rx="250" ry="200" fill="url(#glowGrad)" opacity="0.3" />
+  </g>
+</svg>

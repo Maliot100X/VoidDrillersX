@@ -1,7 +1,44 @@
-
-  <svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="#0B0E17"/>
-    <rect width="100%" height="100%" fill="none" stroke="#BC13FE" stroke-width="54"/>
-    <circle cx="50%" cy="50%" r="270" fill="#BC13FE" opacity="0.5"/>
-    <text x="50%" y="50%" font-family="Arial" font-weight="bold" font-size="108" fill="white" text-anchor="middle" dy=".3em">Screenshot 1</text>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect x="0" y="0" width="1920" height="1080" fill="#030314"/>
+  <g>
+    <path d="M 1200,400 L 1400,500 L 1200,600 Z" fill="#ff3737" transform="rotate(30 1200 500)" opacity="0.5"/>
+    <path d="M 1300,500 L 1500,600 L 1300,700 Z" fill="#ff3737" transform="rotate(60 1300 600)" opacity="0.3"/>
+    <ellipse cx="1350" cy="550" rx="100" ry="50" fill="#ff8c00" opacity="0.7"/>
+    <ellipse cx="1350" cy="550" rx="80" ry="30" fill="#ffc107" opacity="0.9"/>
+  </g>
+  <g transform="translate(400, 200)">
+    <polygon points="200,100 250,150 200,200 150,150" fill="#66ccff" opacity="0.8"/>
+    <rect x="150" y="100" width="100" height="100" fill="#3399ff" opacity="0.5" transform="rotate(45 200 150)"/>
+    <rect x="170" y="120" width="60" height="60" fill="#66ccff" opacity="0.8" transform="rotate(45 200 150)"/>
+  </g>
+  <g>
+    <circle cx="800" cy="600" r="100" fill="#444" opacity="0.2"/>
+    <circle cx="800" cy="600" r="80" fill="#666" opacity="0.3"/>
+    <circle cx="800" cy="600" r="60" fill="#888" opacity="0.4"/>
+    <path d="M 800,540 L 820,520 L 840,540 Z" fill="#fff" opacity="0.8"/>
+  </g>
+  <g>
+    <path d="M 400,800 L 500,900 L 400,1000 Z" fill="#ff3737" transform="rotate(-30 400 900)" opacity="0.5"/>
+    <path d="M 350,850 L 450,950 L 350,1050 Z" fill="#ff3737" transform="rotate(-60 350 950)" opacity="0.3"/>
+    <ellipse cx="450" cy="850" rx="50" ry="30" fill="#ff8c00" opacity="0.7"/>
+    <ellipse cx="450" cy="850" rx="30" ry="20" fill="#ffc107" opacity="0.9"/>
+  </g>
+  <g>
+    <rect x="0" y="0" width="1920" height="1080" fill="none" stroke="#fff" stroke-width="2" opacity="0.1"/>
+    <rect x="100" y="100" width="1720" height="880" fill="none" stroke="#fff" stroke-width="1" opacity="0.1"/>
+  </g>
+  <g>
+    <text x="100" y="100" font-size="30" fill="#fff" opacity="0.5">Mining Spaceship</text>
+    <text x="100" y="150" font-size="20" fill="#fff" opacity="0.3">Asteroid Field</text>
+  </g>
+  <defs>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="glow"/>
+      <feComposite in="SourceGraphic" in2="glow" operator="over"/>
+    </filter>
+  </defs>
+  <g filter="url(#glow)">
+    <path d="M 1350,550 L 1450,650 L 1350,750 Z" fill="#ff3737" transform="rotate(90 1350 650)" opacity="0.8"/>
+  </g>
+</svg>
