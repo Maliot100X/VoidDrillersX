@@ -4,6 +4,7 @@
   "icon": "https://void-drillers-x.vercel.app/icon.png",
   "homeUrl": "https://void-drillers-x.vercel.app",
   "imageUrl": "https://void-drillers-x.vercel.app/og.png",
+  "splashImageUrl": "https://void-drillers-x.vercel.app/splash.png",
   "buttonTitle": "Launch VoidDrillersX",
   "accountAssociation": {
     "header": "eyJmaWQiOjE0MjgzODQsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhmNWJDOTczOThiM0E2MzI5YkUzMzlBZjA4Y2JCY2EyN2VhRUVkQjNCIn0",
